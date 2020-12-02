@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_215158) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.string "price"
+    t.integer "price"
   end
 
   create_table "petitems", force: :cascade do |t|
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_215158) do
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.string "breed"
-    t.string "age"
+    t.integer "age"
   end
 
 end

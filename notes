@@ -1,4 +1,5 @@
 fluffy = Pet.create(name: "Fluffy", breed: "GR", age: 2)
+puff = Pet.create(name: "Puff", breed: "dog", age: 4)
 pet has many petitems 
 
 
