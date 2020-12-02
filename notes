@@ -1,0 +1,6 @@
+fluffy = Pet.create(name: "Fluffy", breed: "GR", age: 2)
+pet has many petitems 
+
+
+ball = Item.create(name: "Ball", price: 4)
+petitem = Petitem.create(pet_id: fluffy.id, item_id: ball.id)
