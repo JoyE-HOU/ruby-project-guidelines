@@ -1,6 +1,7 @@
 require 'bundler'
 require 'tty-prompt'
 require 'pry'
+require 'colorize' # run 'gem install colorize' https://github.com/fazibear/colorize
 
 Bundler.require
 

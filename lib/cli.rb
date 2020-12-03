@@ -3,8 +3,10 @@ class CLI
     def greet 
         puts "                          Welcome to PETITEM.MATCH, the best resource for finding an item for your pet"
     end
-    
-    def run 
+
+
+    def run
+        puts "\n" * 35 # clears the terminal page while the app is running to stimulate a 'next page'
         puts ""
         puts "       ████████╗████████╗╗████████╗ ████████╗████████╗╗████████╗ ███╗   ███║     ███╗   ███╗ █████╗ ████████╗ ██████╗██╗  ██╗"
         puts "       ██    ██╗██      ╗╗   ██╔══  ╚══██╔══╝   ██╔══╝╗██      ╗ ████╗ ████║     ████╗ ████║██╔══██╗╚══██╔══╝██╔════╝██║  ██║"
@@ -17,25 +19,38 @@ class CLI
         greet 
         puts ""
         puts ""
-        puts "Thinking of buying a toy for your pet? We can help you with that decision!"
+        puts "Thinking of buying a toy for your pet? We can help you with that decision!".green
         puts ""
+        puts "To create new pet, enter 'create'"
         puts "To proceed, enter 'menu'"
         puts "To exit, enter 'exit'"
-        menu
+         menu
     end
 
     def menu
         input = gets.strip.downcase
-        if input == "menu"
+        if input == "create"
+            create_pet
+        elsif input == "menu"
             pet_list
             menu
             # items_list
         elsif input == "exit"
             goodbye
         else
-            puts "Invalid entry, try again"
+            puts "Invalid entry, try again".red
             menu
         end
+    end
+
+    def create_pet
+        puts "\n" * 3
+        puts "Great! Let's get started on creating your pet's profile!".green
+        prompt = TTY::Prompt.new
+        pet_type = prompt.select("What type of animal are you shopping for today?", %w(dog cat fish bird))
+        pet_name = prompt.ask("So what's the #{pet_type}'s name?")
+        pet_age = prompt.ask("So cute!!! And how old are they?")
+        puts "So based on the info given, we recommend taking a look at these products for #{pet_type}s."
     end
     
     def pet_list
@@ -84,6 +99,6 @@ class CLI
 
 
     def goodbye
-        puts "Thank you for visiting PETITEM.MATCH!"
+        puts "Thank you for visiting PETITEM.MATCH!".green
     end
 end
